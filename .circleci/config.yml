@@ -11,7 +11,7 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#docker-machine-macos-windows-executor
     # Be sure to update the tag on this image to a more stable version, using latest can result in unstable builds.
     docker:
-      - image: bitnami/dotnet-sdk:latest
+      - image: tomcat:latest
         auth:
             username: coolpavi193@gmail.com
             password: Pavi@2818
