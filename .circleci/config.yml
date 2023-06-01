@@ -13,7 +13,7 @@ jobs:
     docker:
       - image: tomcat:latest
         auth:
-            username: coolpavi193@gmail.com
+            username: pavithra2818
             password: Pavi@2818
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
