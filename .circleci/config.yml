@@ -32,6 +32,10 @@ jobs:
       - run:
           name: Branch
           command: echo "${CIRCLE_BRANCH}"
+          
+      - run:
+          name : tag
+          command : echo "The Git tag is: $PIPELINE_GIT_TAG"
           # Update this line with the directory that contains your tests project file
 #           working_directory: ~/project/App.Tests
 #           name: Run tests
