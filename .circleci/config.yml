@@ -9,14 +9,14 @@ dev_filter: &dev_filter
       only: 
         - dev.20
 
-# qa_filter: &qa_filter
-#   filters:
+qa_filter: &qa_filter
+  filters:
 #     branches:
 #         only:
 #           - master
-    # tags:
-    #   only:
-    #     - qa.*
+    tags:
+      only:
+        - qa.*
   
 jobs:
 
