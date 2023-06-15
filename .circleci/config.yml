@@ -2,18 +2,18 @@ version: 2.1
 
 dev_filter: &dev_filter
   filters:
-    # branches:
-    #   only:
-    #     - master
+    branches:
+      only:
+        - master
     tags:
-      only: 
-        - dev.20
+      only:
+        - /^dev.*/
 
 qa_filter: &qa_filter
   filters:
-#     branches:
-#         only:
-#           - master
+    branches:
+        only:
+          - master
     tags:
       only:
         - qa.*
@@ -31,7 +31,8 @@ jobs:
       - checkout
       - run:
           name: Branch
-          command: echo "${CIRCLE_BRANCH}"
+          command: echo "${CIRCLE_BRANCH}", "${PIPELINE_GIT_TAG}"
+
           # Update this line with the directory that contains your tests project file
 #           working_directory: ~/project/App.Tests
 #           name: Run tests
@@ -54,21 +55,5 @@ workflows:
           <<: *qa_filter
           name: checkout-code-qa
           context: DEV
+          
               
-
-
-
-
-export CIRCLECI_TOKEN="YOUR_API_TOKEN"
-export PROJECT_SLUG="github/username/my-repo"
-export TAG="$CIRCLE_TAG"
-
-curl -X POST -H "Circle-Token: $CIRCLECI_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "branch": "main",
-       "parameters": {
-         "tag": "'"$TAG"'"
-       }
-     }' \
-     "https://circleci.com/api/v2/project/$PROJECT_SLUG/pipeline"
