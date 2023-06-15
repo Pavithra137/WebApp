@@ -16,7 +16,7 @@ qa_filter: &qa_filter
     #       - master
     tags:
       only:
-        - qa.*
+        - /^qa.*.
   
 jobs:
 
