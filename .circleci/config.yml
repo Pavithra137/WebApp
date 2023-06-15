@@ -2,9 +2,9 @@ version: 2.1
 
 dev_filter: &dev_filter
   filters:
-    # branches:
-    #   only:
-    #     - master
+    branches:
+      only:
+        - master
     tags:
       only:
         - /^dev.*/
@@ -56,6 +56,6 @@ workflows:
           name: checkout-code-qa
           context: DEV
 
-          
+
           
               
