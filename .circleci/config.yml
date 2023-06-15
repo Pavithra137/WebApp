@@ -2,18 +2,18 @@ version: 2.1
 
 dev_filter: &dev_filter
   filters:
-    branches:
-      only:
-        - master
+    # branches:
+    #   only:
+    #     - master
     tags:
       only:
         - /^dev.*/
 
 qa_filter: &qa_filter
   filters:
-    branches:
-        only:
-          - master
+    # branches:
+    #     only:
+    #       - master
     tags:
       only:
         - qa.*
