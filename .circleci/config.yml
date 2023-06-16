@@ -48,6 +48,7 @@ jobs:
       - run:
           name: Check Commit Message
           command: |
+            circleci --help
             # Get the commit message for the current commit
             COMMIT_MESSAGE=$(git log --format=%B -n 1 $CIRCLE_SHA1)
 
