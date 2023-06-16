@@ -56,7 +56,8 @@ jobs:
               echo "Deploying to staging..."
               # Trigger the staging deployment job
               # Replace 'stagingDeployment' with the actual job name for staging deployment
-              circleci local execute --job build-and-test
+              circleci job trigger Pavithra137/WebApp -i build-and-test
+              # circleci local execute --job build-and-test
             # elif [[ "$COMMIT_MESSAGE" == *"deploy-production"* ]]; then
             #   echo "Deploying to production..."
             #   # Trigger the production deployment job
