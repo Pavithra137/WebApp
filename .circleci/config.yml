@@ -69,23 +69,22 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  sample: 
+  commit:
     jobs:
       - checkCommitMessage
-      - build-and-tet
+  sample: 
+    jobs:
+      - build-and-test:
+          <<: *dev_filter
+          name: checkout-code-dev
+          context: DEV
 
-  #   jobs:
-  #     - build-and-test:
-  #         <<: *dev_filter
-  #         name: checkout-code-dev
-  #         context: DEV
-
-  # qa-plan-deploy:
-  #   jobs: 
-  #     - build-and-test:
-  #         <<: *qa_filter
-  #         name: checkout-code-qa
-  #         context: DEV
+  qa-plan-deploy:
+    jobs: 
+      - build-and-test:
+          <<: *qa_filter
+          name: checkout-code-qa
+          context: DEV
 
 
           
