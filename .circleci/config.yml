@@ -22,7 +22,7 @@ qa_filter: &qa_filter
       only:
         - /^qa.*/
   
-jobs:
+jobs: 
 
   build-and-test: 
     
