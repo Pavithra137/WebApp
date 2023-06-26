@@ -7,15 +7,17 @@ dev_filter: &dev_filter
          - master
       # only:
       #   - master
-    # tags:
-    #   only:
-    #     - /^dev.*/
+    tags:
+      only:
+        - /^dev.*/
 
 qa_filter: &qa_filter
   filters:
-    # branches:
-    #     only:
-    #       - master
+    branches:
+        ignore:
+           - master
+        # only:
+        #   - master
     tags:
       only:
         - /^qa.*/
