@@ -3,11 +3,13 @@ version: 2.1
 dev_filter: &dev_filter
   filters:
     branches:
-      only:
-        - master
-    tags:
-      only:
-        - /^dev.*/
+      ignore:
+         - master
+      # only:
+      #   - master
+    # tags:
+    #   only:
+    #     - /^dev.*/
 
 qa_filter: &qa_filter
   filters:
