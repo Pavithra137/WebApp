@@ -24,7 +24,7 @@ qa_filter: &qa_filter
   
 jobs:
 
-  build-and-test:
+  build-and-test: 
     
     docker:
       - image: tomcat:latest
