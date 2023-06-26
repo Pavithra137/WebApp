@@ -38,42 +38,42 @@ jobs:
 #           name: Run tests
 #           command: |
 #             dotnet test
-  checkCommitMessage:
-    docker:
-      - image: circleci/python:3.8
+  # checkCommitMessage:
+  #   docker:
+  #     - image: circleci/python:3.8
 
-    steps:
-      - checkout
+  #   steps:
+  #     - checkout
 
-      - run:
-          name: Check Commit Message
-          command: |
-            circleci --help
-            # Get the commit message for the current commit
-            COMMIT_MESSAGE=$(git log --format=%B -n 1 $CIRCLE_SHA1)
+  #     - run:
+  #         name: Check Commit Message
+  #         command: |
+  #           circleci --help
+  #           # Get the commit message for the current commit
+  #           COMMIT_MESSAGE=$(git log --format=%B -n 1 $CIRCLE_SHA1)
 
-            # Check if the commit message contains specific keywords
-            if [[ "$COMMIT_MESSAGE" == *"dev"* ]]; then
-              echo "Deploying to staging..."
-              # Trigger the staging deployment job
-              # Replace 'stagingDeployment' with the actual job name for staging deployment
-              circleci job trigger Pavithra137/WebApp -i build-and-test
-              # circleci local execute --job build-and-test
-            # elif [[ "$COMMIT_MESSAGE" == *"deploy-production"* ]]; then
-            #   echo "Deploying to production..."
-            #   # Trigger the production deployment job
-            #   # Replace 'productionDeployment' with the actual job name for production deployment
-            #   circleci local execute --job productionDeployment
-            else
-              echo "No keyword found in commit message. Skipping pipeline trigger."
-            fi
+  #           # Check if the commit message contains specific keywords
+  #           if [[ "$COMMIT_MESSAGE" == *"dev"* ]]; then
+  #             echo "Deploying to staging..."
+  #             # Trigger the staging deployment job
+  #             # Replace 'stagingDeployment' with the actual job name for staging deployment
+  #             circleci job trigger Pavithra137/WebApp -i build-and-test
+  #             # circleci local execute --job build-and-test
+  #           # elif [[ "$COMMIT_MESSAGE" == *"deploy-production"* ]]; then
+  #           #   echo "Deploying to production..."
+  #           #   # Trigger the production deployment job
+  #           #   # Replace 'productionDeployment' with the actual job name for production deployment
+  #           #   circleci local execute --job productionDeployment
+  #           else
+  #             echo "No keyword found in commit message. Skipping pipeline trigger."
+  #           fi
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  commit:
-    jobs:
-      - checkCommitMessage
+  # commit:
+  #   jobs:
+  #     - checkCommitMessage
   sample: 
     jobs:
       - build-and-test:
@@ -87,6 +87,7 @@ workflows:
           <<: *qa_filter
           name: checkout-code-qa
           context: DEV
+          
 
 
           
