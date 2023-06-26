@@ -86,9 +86,7 @@ workflows:
       - build-and-test:
           <<: *qa_filter
           name: checkout-code-qa
-          context: DEV
-
-          
+          context: DEV 
 
           
               
